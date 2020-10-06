@@ -1,0 +1,57 @@
+@import '_vars';
+
+/*=============================================
+=            tablet large            =
+=============================================*/
+
+@media screen and (max-width: 1024px) {
+	.heroSection {
+		grid-template-columns: 1fr 1fr;
+	}
+	.choose .container > p {
+		width: 80%;
+	}
+	.reasons {
+		grid-template-columns: 1fr 1fr;
+	}
+	.reasonSingle {
+		text-align: center;
+	}
+	.articlesRow {
+		grid-template-columns: 1fr 1fr;
+	}
+	footer .container {
+		justify-content: space-between;
+		.col {
+			margin: 0;
+		}
+		.footerNav {
+			width: auto;
+		}
+		.copyright {
+			margin: 0;
+		}
+	}
+}
+
+/*=====  End of tablet large ======*/
+
+/*=============================================
+=            Table small            =
+=============================================*/
+@media screen and (max-width: 850px) {
+	.topBar button.inv {
+		display: none;
+	}
+	.heroSection .imgHolder img {
+		left: 50px;
+	}
+	footer .footerNav {
+		grid-template-columns: 1fr;
+		a {
+			margin-bottom: 10px;
+		}
+	}
+}
+
+/*=====  End of Table small  ======*/

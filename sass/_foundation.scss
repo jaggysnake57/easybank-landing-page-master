@@ -1,0 +1,321 @@
+@import '_vars';
+
+/*=============================================
+=            reset            =
+=============================================*/
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+.preload-transitions * {
+	// Dry this up a bit with SCSS variable
+	$null-transition: none !important;
+
+	-webkit-transition: $null-transition;
+	-moz-transition: $null-transition;
+	-ms-transition: $null-transition;
+	-o-transition: $null-transition;
+	transition: $null-transition;
+}
+/*=====  End of reset  ======*/
+
+/*=============================================
+=            page            =
+=============================================*/
+body {
+	font-family: 'Public Sans', sans-serif;
+}
+.container {
+	width: 78%;
+	max-width: 1440px;
+	margin: 0 auto;
+}
+button.inv {
+	border: none;
+	border-radius: 30px;
+	background-color: none;
+	background: linear-gradient(to right, $Lime-Green, $Bright-Cyan);
+	height: 40px;
+	padding: 0 30px;
+	font-size: .9em;
+	font-weight: 700;
+	letter-spacing: 1px;
+	color: $White;
+	opacity: 1;
+	transition: opacity .3s;
+	cursor: pointer;
+	&:hover {
+		opacity: .7;
+		transition: .3s;
+	}
+}
+button.hamburger {
+	border: none;
+	background: none;
+}
+
+/*=====  End of page  ======*/
+
+/*=============================================
+=            header            =
+=============================================*/
+
+header {
+	position: fixed;
+	width: 100%;
+	background-color: white;
+	z-index: 10;
+	.container {
+		height: 100px;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+	}
+}
+.hamburger {
+	display: none;
+}
+.navigation {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	width: 34%;
+	min-width: 330px;
+	height: 100%;
+	a {
+		font-size: .9em;
+		color: $Grayish-Blue;
+		text-decoration: none;
+		transition: color .3s;
+		position: relative;
+		&:hover {
+			color: $Dark-Blue;
+			transition: color .3s;
+		}
+		&:hover::after {
+			opacity: 1;
+			transition: opacity .3s;
+		}
+		&::after {
+			content: '';
+			width: 100%;
+			height: 2px;
+			background: linear-gradient(to right, $Lime-Green, $Bright-Cyan);
+			display: inline-block;
+			opacity: 0;
+			transition: opacity .3s;
+			position: absolute;
+			bottom: -20px;
+			left: 0;
+		}
+	}
+}
+/*=====  End of header  ======*/
+
+/*=============================================
+=            hero            =
+=============================================*/
+.heroSection {
+	background-color: $Very-Light-Gray;
+	display: grid;
+	grid-template-columns: 2fr 3fr;
+	.heroTitle {
+		// height: 100%;
+		align-self: center;
+		margin-left: 27%;
+		h1 {
+			color: $Dark-Blue;
+			font-size: 3em;
+			font-weight: 300;
+			margin-bottom: 30px;
+		}
+		p {
+			color: $Grayish-Blue;
+			font-size: 1.1em;
+			line-height: 25px;
+			margin-bottom: 30px;
+		}
+	}
+	.imgHolder {
+		background: url('/images/bg-intro-desktop.svg') left center no-repeat;
+		width: 100%;
+		height: 750px;
+		position: relative;
+		// overflow: hidden;
+		img {
+			left: 170px;
+			top: -30px;
+			position: absolute;
+		}
+	}
+}
+
+/*=====  End of hero  ======*/
+
+/*=============================================
+=            why choose us section            =
+=============================================*/
+.choose {
+	background-color: $Light-Grayish;
+	.container {
+		padding-top: 100px;
+		> h1 {
+			font-size: 2.5em;
+			font-weight: 300;
+			margin-bottom: 30px;
+		}
+		> p {
+			width: 50%;
+			color: $Grayish-Blue;
+			font-size: 1.1em;
+			line-height: 25px;
+			margin-bottom: 100px;
+		}
+	}
+}
+.reasons {
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+}
+.reasonSingle {
+	// background-color: blue;
+	padding-right: 10px;
+	padding-bottom: 125px;
+	> img {
+		margin-bottom: 30px;
+	}
+	> h2 {
+		font-size: 1.4em;
+		font-weight: 400;
+		color: $Dark-Blue;
+		margin-bottom: 20px;
+	}
+	> p {
+		color: $Grayish-Blue;
+		color: $Grayish-Blue;
+		font-size: 1em;
+		line-height: 25px;
+	}
+}
+
+/*=====  End of why choose us section  ======*/
+
+/*=============================================
+=            articles section            =
+=============================================*/
+
+.articles {
+	background-color: $Very-Light-Gray;
+	padding: 100px 0;
+	h1 {
+		font-size: 2.5em;
+		font-weight: 300;
+		margin-bottom: 30px;
+	}
+}
+.articlesRow {
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+}
+.articleSingle {
+	display: block;
+	margin-right: 30px;
+	background-color: white;
+	border-radius: 5px;
+	color: $Grayish-Blue;
+	cursor: pointer;
+	overflow: hidden;
+	margin-bottom: 30px;
+
+	img {
+		width: 100%;
+		max-height: 170px;
+	}
+	.textBody {
+		padding: 20px;
+		.author {
+			font-size: .6em;
+			margin-bottom: 20px;
+		}
+		h2 {
+			color: $Dark-Blue;
+			font-size: 1em;
+			font-weight: 400;
+			margin-bottom: 20px;
+			transition: color .2s;
+		}
+		p {
+			font-size: .8em;
+			font-weight: 300;
+		}
+	}
+	&:hover h2 {
+		color: $Lime-Green;
+		transition: color .2s;
+	}
+}
+
+/*=====  End of articles section  ======*/
+
+/*=============================================
+=            footer section            =
+=============================================*/
+footer {
+	background-color: $Dark-Blue;
+	padding: 50px 0;
+	.container {
+		display: flex;
+	}
+	.col {
+		margin-right: 10%;
+	}
+	.socialLinks {
+		margin-top: 50px;
+		a {
+			margin-right: 7px;
+			transition: color .3s;
+			&:hover path {
+				fill: $Lime-Green;
+				transition: color .3s;
+			}
+		}
+	}
+	.footerNav {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		width: 250px;
+		margin-left: 20px;
+		.footerCol {
+			display: grid;
+		}
+		a {
+			color: white;
+			text-decoration: none;
+			margin-bottom: 20px;
+			font-size: .9em;
+			transition: color .3s;
+			&:hover {
+				color: $Lime-Green;
+				transition: color .3s;
+			}
+		}
+	}
+	.copyright {
+		margin-left: auto;
+		display: flex;
+		align-items: flex-end;
+		flex-direction: column;
+
+		button {
+			margin-bottom: 20px;
+		}
+		p {
+			color: $Light-Grayish;
+			text-align: right;
+			font-size: .9em;
+		}
+	}
+}
+
+/*=====  End of footer section  ======*/
